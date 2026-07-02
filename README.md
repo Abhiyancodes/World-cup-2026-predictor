@@ -16,6 +16,9 @@ A machine learning based match predictor and tournament simulator for FIFA World
 > **📝 Note:** Friendly matches are excluded from training data as they don't reflect true team strength as teams experiment with lineups, rest star players and don't play competitively. Only competitive matches (World Cup, qualifiers, continental tournaments) are used.
 
 ## 📁 Project Structure
+
+```
+World-cup-2026-predictor/
 ├── src/
 │   ├── fetch_data.py          # Downloads match data
 │   ├── prepare_data.py        # Cleans data, creates result labels
@@ -25,8 +28,9 @@ A machine learning based match predictor and tournament simulator for FIFA World
 │   ├── simulate_tournament.py # Simulates knockout bracket
 │   └── monte_carlo.py         # Runs 1000 tournament simulations
 ├── app.py                     # Streamlit web app
-├── requirements.txt
-└── .gitignore
+├── requirements.txt           # Required libraries
+└── .gitignore                 # Files excluded from git
+```
 
 ## 🚀 How to run
 
