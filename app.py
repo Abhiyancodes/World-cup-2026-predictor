@@ -63,17 +63,17 @@ if st.button("Predict Match", type="primary"):
             st.metric(f"{away_team} Elo rating", f"{away_elo:.0f}")
         
 
-        st.subheader("Prediction Probabilties")
+        st.subheader("Prediction Probabilities")
 
         result_map = {1: "Home Win", 0: "Draw", -1: "Away Win"}
         colors = {1: "🟢", 0: "🟡", -1: "🔴"}
 
         for cls,label in result_map.items():
             pct = probs.get(cls, 0) * 100
-            st.write(f"{colors[cls]} **{label}** -- {pct:.1f}%")
+            st.write(f"{colors[cls]} **{label}** — {pct:.1f}%")
             st.progress(pct / 100)
         
-        st.success(f"🏆 Predicted Champion : **{predicted}**")
+        st.success(f"🏆 Predicted Result : **{predicted}**")
 
 st.divider()     
 
@@ -83,7 +83,8 @@ st.header("🎲 Monte Carlo Championship Simulator")
 st.write("Simulate the full World Cup 2026 (from Round of 32) bracket multiple times to find the most likely champion.")
 st.caption("⚠️ Note: This simulation strictly uses the fixed World Cup 2026 Round of 32 bracket.")
 
-n_sims = st.slider("Number of Simulations", min_value=100, max_value=2000, value=500 ,step=100)
+n_sims = st.slider("Number of Simulations", min_value=50, max_value=500, value=100, step=50)
+st.caption("⚠️ Running on free cloud server — keep simulations under 200 for best performance. Run locally for 1000+ simulations.")
 
 round32_matchups = [
     ("Canada",        "South Africa"),
@@ -105,16 +106,20 @@ round32_matchups = [
 ]
 
 if st.button("Run Monte Carlo Simulation", type="primary"):
+    placeholder = st.empty()
+
     with st.spinner(f"Simulating {n_sims} tournaments..."):
         results = run_monte_carlo(round32_matchups, model, elo, n_simulations=n_sims)
-    
-    st.subheader("🏆 Championship Probailities")
+
+    placeholder.empty()
+
+    st.subheader("🏆 Championship Probabilities")
 
     total = sum(results.values())
 
     for team, wins in results.most_common(15):
         pct = (wins / total) * 100
-        st.write(f"**{team}** -- {pct:.1f}%")
+        st.write(f"**{team}** — {pct:.1f}%")
         st.progress(pct / 100)
 
 st.divider()
