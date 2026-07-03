@@ -32,7 +32,7 @@ all_teams = sorted(elo.keys())
 
 # Single Match Predictor
 st.header("⚽ Single Match Predictor")
-st.write("Pick any two teams and see who the model thinks will win.")
+st.write("Pick any two teams and see who the model thinks will win. (Predict the outcome of **any international match**)")
 
 col1,col2 = st.columns(2)
 with col1:
@@ -80,7 +80,8 @@ st.divider()
 # Monte Carlo Championship Probabilities
 
 st.header("🎲 Monte Carlo Championship Simulator")
-st.write("Simulate the full World Cup 2026 (from Round of 32) bracket thousand of times to find the most likely champion.")
+st.write("Simulate the full World Cup 2026 (from Round of 32) bracket multiple times to find the most likely champion.")
+st.caption("⚠️ Note: This simulation strictly uses the fixed World Cup 2026 Round of 32 bracket.")
 
 n_sims = st.slider("Number of Simulations", min_value=100, max_value=2000, value=500 ,step=100)
 
