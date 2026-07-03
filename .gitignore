@@ -1,12 +1,10 @@
-
 __pycache__/
 *.pyc
 *.pyo
 
 data/results.csv
 
-models/
-*.pkl
+models/*.pkl
 
 tempCodeRunnerFile.py
 .vscode/
@@ -14,3 +12,6 @@ tempCodeRunnerFile.py
 .streamlit/
 
 .env
+
+!data/.gitkeep
+!models/.gitkeep
