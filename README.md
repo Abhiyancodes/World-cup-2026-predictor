@@ -57,6 +57,8 @@ streamlit run app.py
 - **Test accuracy**: 53.24%
 - **Features**: Home Elo, Away Elo, Neutral venue
 
+> **🔬 Experiment:** An XGBoost classifier was tested on the `xgboost` branch achieving **58.69% accuracy** (+5.45% improvement over Random Forest). The main branch retains Random Forest as the production model.
+
 ## 🏆 World Cup 2026 Prediction (1000 simulations)
 | Team | Win Probability |
 |------|----------------|
